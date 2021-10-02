@@ -3,10 +3,18 @@ export (int) var Velocidad
 #ayuda a posicionar nuestro personaje
 var Movimiento = Vector2()
 var Limite
+var Vida
+var Hambre
+var Sed
+var Energia
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Limite = get_viewport_rect().size
+	Vida = 100
+	Hambre = 0
+	Sed = 0
+	Energia = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
