@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://frames/parado-paso3.png" type="Texture" id=1]
+[ext_resource path="res://frames/parado-paso4.png" type="Texture" id=2]
+[ext_resource path="res://frames/parado-paso1.png" type="Texture" id=3]
+[ext_resource path="res://frames/parado-paso2.png" type="Texture" id=4]
+[ext_resource path="res://frames/parado-paso5.png" type="Texture" id=5]
+[ext_resource path="res://frames/parado-nave.png" type="Texture" id=6]
+[ext_resource path="res://Personaje.gd" type="Script" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Frente",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Caminando",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 23.5109, 31.4449 )
+
+[node name="Personaje" type="Area2D"]
+position = Vector2( 369.661, 268.026 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+Velocidad = 200
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Caminando"
+frame = 7
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.370529, 0.416786 )
+shape = SubResource( 2 )
