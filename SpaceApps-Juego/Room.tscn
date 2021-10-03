@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Personaje.tscn" type="PackedScene" id=2]
+[ext_resource path="res://background.jpg" type="Texture" id=3]
+[ext_resource path="res://Room.gd" type="Script" id=4]
+[ext_resource path="res://blackbackground.jpg" type="Texture" id=5]
+
+[node name="Room" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Void" type="Sprite" parent="."]
+position = Vector2( 300.683, 227.235 )
+scale = Vector2( 0.8175, 0.776667 )
+texture = ExtResource( 5 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 301.242, 253.81 )
+scale = Vector2( 0.798185, 0.772958 )
+texture = ExtResource( 3 )
+
+[node name="GUI" parent="." instance=ExtResource( 1 )]
+margin_right = 520.0
+
+[node name="Personaje" parent="." instance=ExtResource( 2 )]
+position = Vector2( 358.209, 371.948 )
+Velocidad = 200
+
+[connection signal="hunger_changed" from="Personaje" to="GUI" method="_on_Personaje_hunger_changed"]

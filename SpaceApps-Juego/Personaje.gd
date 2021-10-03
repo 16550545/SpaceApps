@@ -1,20 +1,25 @@
 extends Area2D
 export (int) var Velocidad
+
+signal hunger_changed
 #ayuda a posicionar nuestro personaje
 var Movimiento = Vector2()
 var Limite
-var Vida
-var Hambre
+export var VidaMaxima = 100
+export var HambreMax = 100
+var Hambre 
 var Sed
 var Energia
+var Oxigeno
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Limite = get_viewport_rect().size
-	Vida = 100
-	Hambre = 0
+	var Vida = VidaMaxima
+	Hambre = HambreMax
 	Sed = 0
 	Energia = 100
+	Oxigeno = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -37,3 +42,8 @@ func _process(delta):
 		$AnimatedSprite.flip_h = Movimiento.x > 0
 	else:
 		$AnimatedSprite.animation = "Frente"
+		
+	Hambre -= .01
+	emit_signal("hunger_changed", Hambre)
+	if Hambre <= 00:
+		print("le dio hambre")

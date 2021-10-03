@@ -10,19 +10,20 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="SpaceApps"
+run/main_scene="res://Room.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=600
-window/size/height=300
+window/size/height=450
 
 [rendering]
 
+environment/default_clear_color=Color( 0.329412, 0.317647, 0.317647, 1 )
 environment/default_environment="res://default_env.tres"
