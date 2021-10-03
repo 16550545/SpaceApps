@@ -47,3 +47,4 @@ func _process(delta):
 	emit_signal("hunger_changed", Hambre)
 	if Hambre <= 00:
 		print("le dio hambre")
+
