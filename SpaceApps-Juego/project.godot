@@ -15,8 +15,9 @@ _global_script_class_icons={
 [application]
 
 config/name="SpaceApps"
-run/main_scene="res://Room.tscn"
+run/main_scene="res://Control.tscn"
 config/icon="res://icon.png"
+<<<<<<<.merge_file_a05296run/main_scene="res://Room.tscn"
 
 [display]
 
